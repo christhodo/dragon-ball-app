@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@dragon-ball-app/environment": ["libs/environment/src/index.ts"],
+      "@dragon-ball-app/material": ["libs/material/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
