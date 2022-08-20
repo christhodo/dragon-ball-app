@@ -7,8 +7,9 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
     "start": "nx serve",
     "build": "nx build",
-    "serve:api": "json-server server/db.json",
-    "serve:all": "concurrently \"json-server server/db.json\" \"ng serve\"",
+    "serve:web": "ng serve --port 4300 --open",
+    "serve:api": "json-server apps/server/db.json",
+    "serve:all": "concurrently \"npm run serve:api\" \"npm run serve:web\"",
     "test": "nx test"
   },
   "private": true,
