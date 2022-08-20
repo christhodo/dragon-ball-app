@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <span *ngIf="currentSaiyan?.id; else elseBlock">
+        {{ originalName | titlecase }}
+      </span>
+      <ng-template #elseBlock>Select a Saiyan</ng-template>
+    </mat-card-title>
+  </mat-card-header>
+  <form #form="ngForm" (submit)="saved.emit(currentSaiyan)">
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Name"
+          [(ngModel)]="currentSaiyan.name"
+          name="name"
+          required
+          type="text"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <textarea
+          matInput
+          placeholder="hairColor"
+          [(ngModel)]="currentSaiyan.haircolor"
+          name="haircolor"
+          type="text"
+        ></textarea>
+      </mat-form-field>
+      <section class="full-width"></section>
+      <section></section>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        mat-button
+        color="primary"
+      >
+        Save
+      </button>
+      <button type="button" mat-button (click)="cancelled.emit()">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+  <hr />
+  <pre>{{ form.value | json }}</pre>
+  <pre>{{ form.valid | json }}</pre>
+</mat-card>

@@ -1,0 +1,17 @@
+<div class="saiyans-containers">
+  <div class="saiyans-list">
+    <dragon-ball-app-saiyans-list
+      [saiyans]="saiyans$ | async"
+      (selected)="selectSaiyan($event)"
+      (deleted)="deleteSaiyan($event)"
+    >
+    </dragon-ball-app-saiyans-list>
+  </div>
+  <div class="saiyan-details">
+    <dragon-ball-app-saiyan-details
+      [saiyan]="selectedSaiyan"
+      (cancelled)="reset()"
+      (saved)="saveSaiyan($event)"
+    ></dragon-ball-app-saiyan-details>
+  </div>
+</div>
